@@ -244,7 +244,7 @@ nav ul .navMenu .navMenuBtn img {
 
 /* 회원가입 프로필 이메일 인풋 스타일 */
 .signupContainer .signupBox .signupProfile .profileEmail input {
-  width: 30%; /* 너비 30% 설정 */
+  width: 25%; /* 너비 30% 설정 */
 }
 
 /* 회원가입 프로필 생일 스타일 */
