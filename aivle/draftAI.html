@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="main.css" />
+  <title>Draft AI</title>
+  <style>
+    /* 전역 CSS 초기화 및 기본 스타일링 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    /* 네비게이션 바 스타일 */
+    #draftAINav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000; /* 다른 콘텐츠 위에 나타나도록 설정 */
+    }
+    #draftAINav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    #draftAINav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+    #draftAINav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px 10px;
+      font-size: 1.5em; /* 글자 크기 증가 */
+      display: inline-block; /* 패딩과 마진을 적용하기 위해 인라인 블록 요소로 설정 */
+    }
+    #draftAINav ul li a:hover {
+      background-color: #555;
+    }
+    /* 메인 콘텐츠 컨테이너 */
+    .container {
+      display: flex;
+      flex-wrap: wrap; /* 화면 크기에 따라 줄 바꿈 가능하도록 설정 */
+      justify-content: center;
+      max-width: 800px;
+      margin: 80px auto 20px; /* 네비게이션 바 아래 공간 설정 */
+      padding: 20px;
+      border: 1px solid #ddd; /* 컨테이너를 감싸는 선 */
+    }
+    .left-column,
+    .right-column {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .left-column {
+      margin-bottom: 20px; /* 좌우 컬럼 간격 설정 */
+    }
+    .input-group {
+      flex: 1; /* 입력 칸이 유연하게 늘어날 수 있도록 설정 */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      
+    }
+    #textInput {
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ddd;
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 500px;
+      flex: 1; /* 입력 칸이 유연하게 늘어날 수 있도록 설정 */
+      margin-bottom: 20px; /* 텍스트 입력 칸 아래에 20px의 마진 설정 */
+      text-align: center;
+    }
+    #uploadButton {
+        margin-bottom: 20px; /* 파일 업로드 버튼 아래에 20px의 마진 설정 */
+        height: 50px; /* 파일 업로드 버튼 높이를 30px로 설정 */
+        padding: 0 15px;
+        background-color: gray;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+    }
+    #uploadButton:hover {
+        background-color: #0056b3;
+    }
+
+    #sendButton {
+      height: 50px; /* 전송 버튼 높이를 30px로 설정 */
+      padding: 0 15px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    #sendButton:hover {
+      background-color: #0056b3;
+    }
+    .output-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1; /* 출력 칸이 유연하게 늘어날 수 있도록 설정 */
+    }
+    .output-group h2 {
+        margin-bottom: 10px;
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .output-text {
+      border: 1px solid #ddd;
+      padding: 10px;
+      min-height: 500px;
+      flex: 1; /* 출력 칸이 유연하게 늘어날 수 있도록 설정 */
+      margin-bottom: 20px;
+    }
+    .output-image {
+      border: 1px solid #ddd;
+      padding: 10px;
+      min-height: 500px;
+      display: flex; /* 이미지를 중앙 정렬하기 위해 추가 */
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+    }
+    .output-image img {
+      max-width: 100%;
+      height: auto;
+    }
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: row;
+        gap: 20px;
+      }
+      .left-column,
+      .right-column {
+        width: 45%;
+        margin-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 네비게이션 바 -->
+  <nav id="draftAINav">
+    <ul>
+      <li><a href="index.html">Draft AI</a></li>
+      <!-- 필요한 경우 더 많은 링크 추가 -->
+    </ul>
+  </nav>
+
+  <!-- 메인 콘텐츠 -->
+  <div class="container">
+    <div class="left-column">
+      <div class="input-group">
+        <input type="text" id="textInput" placeholder="텍스트를 입력하세요" />
+        <input type="file" id="fileInput" accept=".txt,.doc,.docx,.pdf" style="display: none;">
+        <button id="uploadButton">파일 업로드</button>
+        <button id="sendButton">요약 및 이미지 생성</button>
+      </div>
+    </div>
+    <div class="right-column">
+      <div class="output-group">
+        <h2>요약글</h2>
+        <div id="textOutput" class="output-text"></div>
+        <h2>생성이미지</h2>
+        <div id="imageOutput" class="output-image"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 파일 등록 버튼 클릭 시 파일 선택 창 열기
+    document.getElementById('uploadButton').addEventListener('click', () => {
+      document.getElementById('fileInput').click();
+    });
+
+    // 파일 선택 시 발생하는 이벤트 리스너 추가
+    document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+
+    // 파일 선택 후 처리할 함수
+    function handleFileSelect(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      
+      reader.onload = function(e) {
+        const fileContent = e.target.result;
+        document.getElementById('textInput').value = fileContent; // 파일 내용을 텍스트 입력란에 설정
+      };
+      
+      reader.readAsText(file); // 파일을 텍스트로 읽어옴
+    }
+
+    // 요약 및 이미지 생성 버튼 클릭 시 처리할 함수
+    document.getElementById('sendButton').addEventListener('click', () => {
+      const textInput = document.getElementById('textInput').value;
+      
+      // 텍스트 출력
+      const textOutput = document.getElementById('textOutput');
+      textOutput.textContent = textInput;
+
+      // 이미지 출력 (예: 임의의 이미지 URL 사용)
+      const imageOutput = document.getElementById('imageOutput');
+      const imageUrl = 'https://via.placeholder.com/400x300'; // 여기에 실제 이미지 URL을 설정하세요
+      imageOutput.innerHTML = `<img src="${imageUrl}" alt="출력 이미지" />`;
+    });
+  </script>
+</body>
+</html>
