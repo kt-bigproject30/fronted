@@ -1,0 +1,264 @@
+/* 전체 로그인 및 회원가입 박스 스타일 */
+
+/* 회원가입 컨테이너 스타일 */
+.signupContainer {
+  position: relative; /* 상대 위치 설정 */
+  top: 60px; /* 상단에서 60px 아래 */
+  width: 100%; /* 너비 100% 설정 */
+  height: 100vh; /* 높이 100% 설정 */
+  font-family: "Nanum Gothic", sans-serif; /* 글꼴 설정 */
+  display: flex; /* 플렉스 박스로 설정 */
+  justify-content: center; /* 중앙 정렬 */
+  padding-top: 26px; /* 상단 패딩 설정 */
+}
+
+.signupContainer.signupBox {
+  width: 540px; /* 너비 설정 */
+  height: 600px; /* 높이 설정 */
+  border-radius: 28px; /* 모서리를 둥글게 설정 */
+  box-shadow: 0 0 10 10 rgb(178, 177, 177); /* 박스 그림자 설정 */
+  display: flex; /* 플렉스 박스로 설정 */
+  flex-direction: column; /* 세로 방향으로 정렬 */
+  justify-content: center; /* 중앙 정렬 */
+  align-items: center; /* 중앙 정렬 */
+}
+
+/* 로그인 및 회원가입 버튼 스타일 */
+.signupContainer .signupBox .signupBtn button {
+  width: 100%; /* 너비를 100%로 설정 */
+  height: 48px; /* 높이 설정 */
+  background-color: rgb(234, 234, 234); /* 배경 색상 설정 */
+  border: 0px; /* 테두리 제거 */
+  box-shadow: inset 0 0 4px rgb(234, 234, 234); /* 내부 그림자 설정 */
+  border-radius: 8px; /* 모서리를 둥글게 설정 */
+  font-size: 16px; /* 글꼴 크기 설정 */
+}
+
+/* 버튼 호버 시 스타일 */
+.signupContainer .signupBox .signupBtn button:hover {
+  background-color: #685cec; /* 배경 색상 변경 */
+  box-shadow: inset 0 0 4px #685cec; /* 내부 그림자 변경 */
+  color: white; /* 글자 색상 변경 */
+  transition: 0.4s; /* 전환 효과 시간 설정 */
+  cursor: pointer; /* 커서 모양 변경 */
+}
+
+/* 회원가입 입력 필드 스타일 */
+.signupContainer.signupBox .signupProfile .profileBirth input,
+.signupContainer.signupBox .signupProfile .profileEmail input,
+.signupContainer.signupBox .signupProfile .profileName input,
+.signupContainer.signupBox .signupProfile .profilePwd input,
+.signupContainer.signupBox .signupProfile .profileId input {
+  height: 40px; /* 높이 설정 */
+  border: 0px; /* 테두리 제거 */
+  border-radius: 8px; /* 모서리를 둥글게 설정 */
+  padding: 8px; /* 안쪽 여백 설정 */
+  box-shadow: inset 0 0 2px lightgray; /* 내부 그림자 설정 */
+  box-sizing: border-box; /* 박스 크기 설정 */
+  outline: none; /* 아웃라인 제거 */
+}
+
+body {
+  margin: 0px;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 네비게이션 바 스타일 */
+nav {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 1;
+}
+nav ul {
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Heebo", sans-serif;
+  font-size: 13px;
+  position: relative;
+}
+nav ul .navBar {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+}
+nav ul .navBar li {
+  display: flex;
+  align-items: center;
+}
+nav ul .navBar .navLogo {
+  padding: 16px 16px 16px 160px;
+  font-size: 20px;
+  font-weight: 500;
+}
+nav ul .navBar .navMenuContainer {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+nav ul .navBar .navMenuContainer .navMenu {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  cursor: pointer;
+}
+nav ul .navBar .navMenuContainer .navMenu:hover {
+  color: #685cec;
+}
+nav ul .navBar .navMenuContainer .dropDown:hover .dropDownContent {
+  display: block;
+}
+nav ul .navBar .navMenuContainer .dropDown .dropDownContent {
+  display: none;
+  position: absolute;
+  top: 50px;
+  min-width: 140px;
+  margin-left: 16px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 0 10px lightgray;
+}
+nav ul .navBar .navMenuContainer .dropDown .dropDownContent div:hover {
+  color: #685cec;
+  cursor: pointer;
+}
+nav ul .navBar .navLogin {
+  padding: 16px;
+  margin-right: 150px;
+  cursor: pointer;
+}
+nav ul .navMenu .navMenuBtn {
+  position: absolute;
+  right: 32px;
+  top: 20px;
+}
+nav ul .navMenu .navMenuBtn img {
+  width: 20px;
+  height: 20px;
+}
+.hidden {
+  display: none;
+}
+
+/* 회원가입 박스 높이 설정 */
+.signupContainer .signupBox {
+  height: 700px; /* 높이 설정 */
+}
+
+/* 회원가입 설명 스타일 */
+.signupContainer .signupBox .signupDescription {
+  width: 100%; /* 너비 100% 설정 */
+  margin: 64px 0px 18px 0px; /* 여백 설정 */
+}
+
+/* 회원가입 설명 첫 번째 항목 스타일 */
+.signupContainer .signupBox .signupDescription div:nth-child(1) {
+  font-size: 32px; /* 글꼴 크기 설정 */
+  font-weight: 600; /* 글꼴 두께 설정 */
+  margin-bottom: 14px; /* 하단 여백 설정 */
+}
+
+/* 회원가입 프로필 스타일 */
+.signupContainer .signupBox .signupProfile {
+  width: 100%; /* 너비 100% 설정 */
+}
+
+/* 회원가입 인풋 스타일 */
+.signupContainer .signupBox .signupProfile input {
+  font-family: "Nanum Gothic", sans-serif; /* 글꼴 설정 */
+}
+
+/* 회원가입 알림 메시지 스타일 */
+.signupContainer .signupBox .signupProfile .notice {
+  width: 100%; /* 너비 100% 설정 */
+  height: 10px; /* 높이 설정 */
+  font-size: 12px; /* 글꼴 크기 설정 */
+  color: red; /* 글자 색상 설정 */
+  margin-top: 8px; /* 상단 여백 설정 */
+  margin-bottom: 8px; /* 하단 여백 설정 */
+}
+
+/* 회원가입 레이블 스타일 */
+.signupContainer .signupBox .signupProfile label {
+  margin-bottom: 8px; /* 하단 여백 설정 */
+  display: block; /* 블록 요소로 설정 */
+  font-size: 14px; /* 글꼴 크기 설정 */
+}
+
+/* 회원가입 프로필 ID 스타일 */
+.signupContainer .signupBox .signupProfile .profileId {
+  margin-bottom: 8px; /* 하단 여백 설정 */
+}
+
+/* 회원가입 프로필 ID 인풋 스타일 */
+.signupContainer .signupBox .signupProfile .profileId input {
+  width: 80%; /* 너비 80% 설정 */
+}
+
+/* 회원가입 프로필 비밀번호 스타일 */
+.signupContainer .signupBox .signupProfile .profilePwd {
+  margin-bottom: 8px; /* 하단 여백 설정 */
+}
+
+/* 회원가입 프로필 비밀번호 인풋 스타일 */
+.signupContainer .signupBox .signupProfile .profilePwd input {
+  width: 80%; /* 너비 80% 설정 */
+}
+
+/* 회원가입 프로필 비밀번호 두 번째 인풋 스타일 */
+.signupContainer .signupBox .signupProfile .profilePwd input:nth-child(2) {
+  margin-bottom: 8px; /* 하단 여백 설정 */
+}
+
+/* 회원가입 프로필 비밀번호 알림 메시지 스타일 */
+.signupContainer .signupBox .signupProfile .profilePwd .notice:nth-child(3) {
+  margin-top: 0px; /* 상단 여백 제거 */
+}
+
+/* 회원가입 프로필 이름 스타일 */
+.signupContainer .signupBox .signupProfile .profileName {
+  margin-bottom: 8px; /* 하단 여백 설정 */
+}
+
+/* 회원가입 프로필 이름 인풋 스타일 */
+.signupContainer .signupBox .signupProfile .profileName input {
+  width: 80%; /* 너비 80% 설정 */
+}
+
+/* 회원가입 프로필 이메일 스타일 */
+.signupContainer .signupBox .signupProfile .profileEmail {
+  margin-bottom: 8px; /* 하단 여백 설정 */
+}
+
+/* 회원가입 프로필 이메일 인풋 스타일 */
+.signupContainer .signupBox .signupProfile .profileEmail input {
+  width: 30%; /* 너비 30% 설정 */
+}
+
+/* 회원가입 프로필 생일 스타일 */
+.signupContainer .signupBox .signupProfile .profileBirth {
+  margin-bottom: 8px; /* 하단 여백 설정 */
+}
+
+/* 회원가입 프로필 생일 인풋 스타일 */
+.signupContainer .signupBox .signupProfile .profileBirth input {
+  width: 30%; /* 너비 30% 설정 */
+}
+
+/* 회원가입 버튼 컨테이너 스타일 */
+.signupContainer .signupBox .signupBtn {
+  width: 84%; /* 너비 84% 설정 */
+  margin: 18px 0px 64px 0px; /* 여백 설정 */
+}

@@ -1,0 +1,197 @@
+body {
+  margin: 0px;
+  min-height: 100vh;
+}
+body .hidden {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 1;
+}
+nav ul {
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Heebo", sans-serif;
+  font-size: 13px;
+  position: relative;
+}
+nav ul .navBar {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+}
+nav ul .navBar li {
+  display: flex;
+  align-items: center;
+}
+nav ul .navBar .navLogo {
+  padding: 16px 16px 16px 160px;
+  font-size: 20px;
+  font-weight: 500;
+}
+nav ul .navBar .navMenuContainer {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+nav ul .navBar .navMenuContainer .navMenu {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  cursor: pointer;
+}
+nav ul .navBar .navMenuContainer .navMenu:hover {
+  color: #685cec;
+}
+nav ul .navBar .navMenuContainer .dropDown:hover .dropDownContent {
+  display: block;
+}
+nav ul .navBar .navMenuContainer .dropDown .dropDownContent {
+  display: none;
+  position: absolute;
+  top: 50px;
+  min-width: 140px;
+  margin-left: 16px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 0 10px lightgray;
+}
+nav ul .navBar .navMenuContainer .dropDown .dropDownContent div:hover {
+  color: #685cec;
+  cursor: pointer;
+}
+nav ul .navBar .navLogin {
+  padding: 16px;
+  margin-right: 150px;
+  cursor: pointer;
+}
+nav ul .navMenu .navMenuBtn {
+  position: absolute;
+  right: 32px;
+  top: 20px;
+}
+nav ul .navMenu .navMenuBtn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* 메인 콘텐츠 컨테이너 */
+.container {
+  display: flex;
+  flex-wrap: wrap; /* 화면 크기에 따라 줄 바꿈 가능하도록 설정 */
+  justify-content: center;
+  max-width: 800px;
+  margin: 80px auto 20px; /* 네비게이션 바 아래 공간 설정 */
+  padding: 20px;
+  border: 1px solid #ddd; /* 컨테이너를 감싸는 선 */
+}
+.left-column,
+.right-column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.left-column {
+  margin-bottom: 20px; /* 좌우 컬럼 간격 설정 */
+}
+.input-group {
+  flex: 1; /* 입력 칸이 유연하게 늘어날 수 있도록 설정 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#textInput {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 500px;
+  flex: 1; /* 입력 칸이 유연하게 늘어날 수 있도록 설정 */
+  margin-bottom: 20px; /* 텍스트 입력 칸 아래에 20px의 마진 설정 */
+  text-align: center;
+}
+#uploadButton {
+  margin-bottom: 20px; /* 파일 업로드 버튼 아래에 20px의 마진 설정 */
+  height: 50px; /* 파일 업로드 버튼 높이를 30px로 설정 */
+  padding: 0 15px;
+  background-color: gray;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+#uploadButton:hover {
+  background-color: #0056b3;
+}
+
+#sendButton {
+  height: 50px; /* 전송 버튼 높이를 30px로 설정 */
+  padding: 0 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+#sendButton:hover {
+  background-color: #0056b3;
+}
+.output-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* 출력 칸이 유연하게 늘어날 수 있도록 설정 */
+}
+.output-group h2 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.output-text {
+  border: 1px solid #ddd;
+  padding: 10px;
+  min-height: 500px;
+  flex: 1; /* 출력 칸이 유연하게 늘어날 수 있도록 설정 */
+  margin-bottom: 20px;
+}
+.output-image {
+  border: 1px solid #ddd;
+  padding: 10px;
+  min-height: 500px;
+  display: flex; /* 이미지를 중앙 정렬하기 위해 추가 */
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+.output-image img {
+  max-width: 100%;
+  height: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    gap: 20px;
+  }
+  .left-column,
+  .right-column {
+    width: 45%;
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="assets/site.webmanifest" />
+    <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="css/draftai.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&family=Nanum+Gothic:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&family=Nanum+Gothic:wght@400;700&display=swap");
+    </style>
+    <title>Draft AI</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <div class="navBar">
+          <li class="navLogo">
+            <div><a href="../index.html">빅프로젝트 30조</a></div>
+          </li>
+          <li>
+            <div class="navMenuContainer">
+              <div class="dropDown">
+                <div class="navMenu dropDownMenu navTutorial">서브메뉴1</div>
+                <div class="dropDownContent">
+                  <div class="navTutorial tutorialSquat">서브메뉴1-1</div>
+                  <div class="navTutorial tutoriaSideLunge">서브메뉴1-2</div>
+                  <div class="navTutorial tutorialPlank">서브메뉴1-3</div>
+                  <div class="navTutorial tutorialShoulderPress">
+                    서브메뉴1-4
+                  </div>
+                </div>
+              </div>
+              <div class="navMenu">
+                <a href="mypage.html">마이페이지</a>
+              </div>
+              <div class="navMenu">기록지</div>
+              <div class="navMenu">
+                <a href="community.html">커뮤니티</a>
+              </div>
+              <div class="navMenu">
+                <a href="draftAI.html">Draft AI</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="navLogin"><a href="login.html">Login</a></div>
+          </li>
+        </div>
+      </ul>
+    </nav>
+    <div class="container">
+      <div class="left-column">
+        <div class="input-group">
+          <input type="text" id="textInput" placeholder="텍스트를 입력하세요" />
+          <input
+            type="file"
+            id="fileInput"
+            accept=".txt,.doc,.docx,.pdf"
+            style="display: none"
+          />
+          <button id="uploadButton">파일 업로드</button>
+          <button id="sendButton">요약 및 이미지 생성</button>
+        </div>
+      </div>
+      <div class="right-column">
+        <div class="output-group">
+          <h2>요약글</h2>
+          <div id="textOutput" class="output-text"></div>
+          <h2>생성이미지</h2>
+          <div id="imageOutput" class="output-image"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // 파일 등록 버튼 클릭 시 파일 선택 창 열기
+      document.getElementById("uploadButton").addEventListener("click", () => {
+        document.getElementById("fileInput").click();
+      });
+
+      // 파일 선택 시 발생하는 이벤트 리스너 추가
+      document
+        .getElementById("fileInput")
+        .addEventListener("change", handleFileSelect);
+
+      // 파일 선택 후 처리할 함수
+      function handleFileSelect(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          const fileContent = e.target.result;
+          document.getElementById("textInput").value = fileContent; // 파일 내용을 텍스트 입력란에 설정
+        };
+
+        reader.readAsText(file); // 파일을 텍스트로 읽어옴
+      }
+
+      // 요약 및 이미지 생성 버튼 클릭 시 처리할 함수
+      document.getElementById("sendButton").addEventListener("click", () => {
+        const textInput = document.getElementById("textInput").value;
+
+        // 텍스트 출력
+        const textOutput = document.getElementById("textOutput");
+        textOutput.textContent = textInput;
+
+        // 이미지 출력 (예: 임의의 이미지 URL 사용)
+        const imageOutput = document.getElementById("imageOutput");
+        const imageUrl = "https://via.placeholder.com/400x300"; // 여기에 실제 이미지 URL을 설정하세요
+        imageOutput.innerHTML = `<img src="${imageUrl}" alt="출력 이미지" />`;
+      });
+    </script>
+    <script src="../app.js"></script>
+  </body>
+</html>
