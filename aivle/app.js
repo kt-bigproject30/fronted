@@ -42,6 +42,14 @@ signupBtn.addEventListener('click', function(){
     hiddenClassRemove(signupBox);
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const draftAIMenu = document.querySelector('.navMenuContainer .navMenu:nth-child(5)');
+  
+    draftAIMenu.addEventListener('click', () => {
+      window.location.href = 'draftAI.html';
+    });
+  });
+
 
 /**
  * 
