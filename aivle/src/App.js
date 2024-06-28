@@ -1,3 +1,30 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import DraftAI from "./pages/DraftAI";
+import MyPage from "./pages/Mypage";
+import Community from "./pages/community";
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/community" element={<community />} />
+          <Route path="/draftAI" element={<DraftAI />} />
+          <Route path="/mypage" element={<MyPage />} />
+          {/* 필요한 다른 경로들도 추가할 수 있습니다 */}
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+
 /**
  *
  * @param {Element} add hidden 클래스를 추가할 요소
@@ -254,3 +281,112 @@ signupDay.addEventListener("change", function () {
     dayNotice.classList.remove("hidden");
   }
 });
+
+// const navTutorial = document.querySelectorAll(".navTutorial");
+
+// navTutorial.forEach(function (e) {
+//   e.addEventListener("click", function () {
+//     const mainContainer = document.querySelector(".mainContainer");
+//     const loginContainer = document.querySelector(".loginContainer");
+//     const tutorialContainer = document.querySelector(".tutorialContainer");
+//     const tutorialSquatBox = document.querySelector(".tutorialSquatBox");
+//     const tutorialSideLungeBox = document.querySelector(
+//       ".tutorialSideLungeBox"
+//     );
+//     const tutorialPlankBox = document.querySelector(".tutorialPlankBox");
+//     const tutorialShoulderPressBox = document.querySelector(
+//       ".tutorialShoulderPressBox"
+//     );
+
+//     hiddenClassAdd(mainContainer);
+//     hiddenClassAdd(loginContainer);
+//     hiddenClassRemove(tutorialContainer);
+
+//     if (e.classList.contains("tutorialSquat")) {
+//       hiddenClassRemove(tutorialSquatBox);
+//       document
+//         .querySelector(".tutorialSquatBox iframe")
+//         .classList.remove("visibilityHidden");
+//       hiddenClassAdd(tutoriaSideLungeBox);
+//       document
+//         .querySelector(".tutoriaSideLungeBox iframe")
+//         .classList.add("visibilityHidden");
+//       hiddenClassAdd(tutorialPlankBox);
+//       document
+//         .querySelector(".tutorialPlankBox iframe")
+//         .classList.add("visibilityHidden");
+//       hiddenClassAdd(tutorialShoulderPressBox);
+//       document
+//         .querySelector(".tutorialShoulderPressBox iframe")
+//         .classList.add("visibilityHidden");
+//     } else if (e.classList.contains("tutoriaSideLunge")) {
+//       hiddenClassRemove(tutoriaSideLungeBox);
+//       document
+//         .querySelector(".tutoriaSideLungeBox iframe")
+//         .classList.remove("visibilityHidden");
+//       hiddenClassAdd(tutorialSquatBox);
+//       document
+//         .querySelector(".tutorialSquatBox iframe")
+//         .classList.add("visibilityHidden");
+//       hiddenClassAdd(tutorialPlankBox);
+//       document
+//         .querySelector(".tutorialPlankBox iframe")
+//         .classList.add("visibilityHidden");
+//       hiddenClassAdd(tutorialShoulderPressBox);
+//       document
+//         .querySelector(".tutorialShoulderPressBox iframe")
+//         .classList.add("visibilityHidden");
+//     } else if (e.classList.contains("tutorialPlank")) {
+//       hiddenClassRemove(tutorialPlankBox);
+//       document
+//         .querySelector(".tutorialPlankBox iframe")
+//         .classList.remove("visibilityHidden");
+//       hiddenClassAdd(tutorialSquatBox);
+//       document
+//         .querySelector(".tutorialSquatBox iframe")
+//         .classList.add("visibilityHidden");
+//       hiddenClassAdd(tutoriaSideLungeBox);
+//       document
+//         .querySelector(".tutoriaSideLungeBox iframe")
+//         .classList.add("visibilityHidden");
+//       hiddenClassAdd(tutorialShoulderPressBox);
+//       document
+//         .querySelector(".tutorialShoulderPressBox iframe")
+//         .classList.add("visibilityHidden");
+//     } else if (e.classList.contains("tutorialShoulderPress")) {
+//       hiddenClassRemove(tutorialShoulderPressBox);
+//       document
+//         .querySelector(".tutorialShoulderPressBox iframe")
+//         .classList.remove("visibilityHidden");
+//       hiddenClassAdd(tutorialSquatBox);
+//       document
+//         .querySelector(".tutorialSquatBox iframe")
+//         .classList.add("visibilityHidden");
+//       hiddenClassAdd(tutoriaSideLungeBox);
+//       document
+//         .querySelector(".tutoriaSideLungeBox iframe")
+//         .classList.add("visibilityHidden");
+//       hiddenClassAdd(tutorialPlankBox);
+//       document
+//         .querySelector(".tutorialPlankBox iframe")
+//         .classList.add("visibilityHidden");
+//     } else {
+//       hiddenClassRemove(tutorialSquatBox);
+//       document
+//         .querySelector(".tutorialSquatBox iframe")
+//         .classList.remove("visibilityHidden");
+//       hiddenClassRemove(tutoriaSideLungeBox);
+//       document
+//         .querySelector(".tutoriaSideLungeBox iframe")
+//         .classList.remove("visibilityHidden");
+//       hiddenClassRemove(tutorialPlankBox);
+//       document
+//         .querySelector(".tutorialPlankBox iframe")
+//         .classList.remove("visibilityHidden");
+//       hiddenClassRemove(tutorialShoulderPressBox);
+//       document
+//         .querySelector(".tutorialShoulderPressBox iframe")
+//         .classList.remove("visibilityHidden");
+//     }
+//  });
+//});
