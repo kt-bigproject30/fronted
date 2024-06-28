@@ -16,16 +16,141 @@
       rel="stylesheet"
     />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&family=Nanum+Gothic:wght@400;700&display=swap");
+      body {
+        font-family: 'Nanum Gothic', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f7f7f7;
+      }
+
+      nav {
+        position: fixed;
+        width: 100%;
+        height: 60px;
+        top: 0;
+        left: 0;
+        background-color: white;
+        z-index: 1;
+      }
+      nav ul {
+        width: 100%;
+        height: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        font-family: "Heebo", sans-serif;
+        font-size: 13px;
+        position: relative;
+      }
+      nav ul .navBar {
+        display: flex;
+        height: 100%;
+        justify-content: space-between;
+      }
+      nav ul .navBar li {
+        display: flex;
+        align-items: center;
+      }
+      nav ul .navBar .navLogo {
+        padding: 16px 16px 16px 160px;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      nav ul .navBar .navMenuContainer {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+      }
+      nav ul .navBar .navMenuContainer .navMenu {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        cursor: pointer;
+      }
+      nav ul .navBar .navMenuContainer .navMenu:hover {
+        color: #685cec;
+      }
+      nav ul .navBar .navMenuContainer .dropDown:hover .dropDownContent {
+        display: block;
+      }
+      nav ul .navBar .navMenuContainer .dropDown .dropDownContent {
+        display: none;
+        position: absolute;
+        top: 50px;
+        min-width: 140px;
+        margin-left: 16px;
+        padding: 8px;
+        border-radius: 8px;
+        background-color: white;
+        box-shadow: 0 0 10px lightgray;
+      }
+      nav ul .navBar .navMenuContainer .dropDown .dropDownContent div:hover {
+        color: #685cec;
+        cursor: pointer;
+      }
+      nav ul .navBar .navLogin {
+        padding: 16px;
+        margin-right: 150px;
+        cursor: pointer;
+      }
+      nav ul .navMenu .navMenuBtn {
+        position: absolute;
+        right: 32px;
+        top: 20px;
+      }
+      nav ul .navMenu .navMenuBtn img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .user-info {
+        background-color: #fff;
+        padding: 20px;
+        margin: 80px auto 20px;
+        max-width: 600px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+      .user-info h2 {
+        margin-top: 0;
+      }
+      .user-info form {
+        display: flex;
+        flex-direction: column;
+      }
+      .user-info label {
+        margin: 10px 0 5px;
+      }
+      .user-info input,
+      .user-info select {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .user-info button {
+        padding: 10px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #5bbad5;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .user-info button:hover {
+        background-color: #48a4c3;
+      }
     </style>
-    <title>로그인</title>
+    <title>사용자 정보</title>
   </head>
   <body>
     <nav>
       <ul>
         <div class="navBar">
           <li class="navLogo">
-            <div><a href="../public/index.html">빅프로젝트 30조</a></div>
+            <div><a href="../index.html">빅프로젝트 30조</a></div>
           </li>
 
           <li>
@@ -66,6 +191,33 @@
         </li>
       </ul>
     </nav>
+
+    <section class="user-info">
+      <h2>사용자 정보</h2>
+      <form id="userInfoForm">
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="username">아이디:</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">비밀번호:</label>
+        <input type="password" id="password" name="password" required />
+
+        <label for="gender">성별:</label>
+        <select id="gender" name="gender" required>
+          <option value="male">남성</option>
+          <option value="female">여성</option>
+          <option value="other">기타</option>
+        </select>
+
+        <label for="email">이메일:</label>
+        <input type="email" id="email" name="email" required />
+
+        <button type="button" id="editUserInfoBtn">사용자 정보 수정</button>
+        <button type="button" id="viewUsageHistoryBtn">사용 내역 보기</button>
+      </form>
+    </section>
 
     <script src="../app.js"></script>
   </body>
